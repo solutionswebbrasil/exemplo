@@ -1,0 +1,683 @@
+<html><head><base href="https://tax-consultant-website.example">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultoria Tributária & Associados</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+    --primary: #1a365d;
+    --secondary: #718096;
+    --accent: #e53e3e;
+    --background: #f7fafc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    background-color: var(--background);
+}
+
+.header {
+    background-color: var(--primary);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #cbd5e0;
+}
+
+.hero {
+    background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.9)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%231a365d"/><path d="M0 100C200 150 400 50 800 100L800 0L0 0Z" fill="%23cbd5e0"/><circle cx="700" cy="200" r="80" fill="%23718096" opacity="0.5"/><rect x="100" y="300" width="200" height="150" rx="20" fill="%23e53e3e" opacity="0.3"/><path d="M300 400C500 450 600 350 800 400" stroke="%23ffffff" fill="none" stroke-width="5"/></svg>');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    animation: fadeInUp 1s ease 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.section {
+    margin-bottom: 4rem;
+}
+
+.section h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.team-member h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.news-date {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footer {
+    background-color: var(--primary);
+    color: white;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #2c5282;
+}
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 32px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 80%;
+        background: var(--primary);
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.floating-icon {
+    position: absolute;
+    opacity: 0.2;
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+}
+
+.service-card:hover::before {
+    opacity: 0.1;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(10deg);
+    color: var(--accent);
+}
+
+.service-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.service-card p {
+    color: var(--secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    transform: translateY(0);
+}
+
+.service-card:hover p {
+    transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">CT & Associados</a>
+            <div class="nav-menu">
+                <a href="#sobre">Sobre</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#noticias">Notícias</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Consultoria Tributária & Associados</h1>
+            <p>Soluções tributárias especializadas para sua empresa</p>
+        </div>
+    </section>
+
+    <main class="content">
+        <section id="sobre" class="section">
+            <h2>Sobre Nós</h2>
+            <p>Com anos de experiência no mercado, nossa equipe oferece consultoria tributária especializada, 
+            combinando expertise jurídica e fiscal para proporcionar as melhores soluções para nossos clientes.</p>
+        </section>
+
+        <section id="servicos" class="section">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Planejamento Tributário</h3>
+                    <p>Desenvolvimento de estratégias para otimização da carga tributária de forma legal e segura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Consultoria Fiscal</h3>
+                    <p>Orientação especializada em questões fiscais e tributárias para empresas de todos os portes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Recuperação de Tributos</h3>
+                    <p>Análise e recuperação de tributos pagos indevidamente através de processos administrativos e judiciais.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Contencioso Tributário</h3>
+                    <p>Defesa em processos administrativos e judiciais relacionados a questões tributárias.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análise de Riscos Fiscais</h3>
+                    <p>Identificação e avaliação de riscos fiscais em operações empresariais.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Compliance Tributário</h3>
+                    <p>Implementação de procedimentos para garantir o cumprimento das obrigações fiscais.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="section">
+            <h2>Nossa Equipe</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Dr. João Silva</h3>
+                    <p>Advogado Tributarista</p>
+                    <p>Especialista em Direito Tributário com mais de 15 anos de experiência.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Dra. Maria Santos</h3>
+                    <p>Advogada Tributarista</p>
+                    <p>Especialista em Planejamento Tributário e Consultoria Empresarial.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Carlos Oliveira</h3>
+                    <p>Analista Tributário</p>
+                    <p>Especialista em Análise Fiscal e Tributária com vasta experiência em consultoria.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="noticias" class="section">
+            <h2>Últimas Notícias e Atualizações</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>Alterações na Legislação Tributária 2024</h3>
+                    <div class="news-date">15 de Janeiro de 2024</div>
+                    <p>Confira as principais mudanças na legislação tributária para o ano de 2024.</p>
+                </article>
+                <article class="news-card">
+                    <h3>Novo Sistema de Tributação</h3>
+                    <div class="news-date">10 de Janeiro de 2024</div>
+                    <p>Entenda como o novo sistema de tributação afetará sua empresa.</p>
+                </article>
+                <article class="news-card">
+                    <h3>Planejamento Tributário</h3>
+                    <div class="news-date">5 de Janeiro de 2024</div>
+                    <p>Dicas importantes para um planejamento tributário eficiente em 2024.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <h2>Entre em Contato</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>CT & Associados</h3>
+                <p>Consultoria Tributária Especializada</p>
+            </div>
+            <div>
+                <h3>Contato</h3>
+                <p>Tel: (11) 1234-5678</p>
+                <p>Email: contato@ctassociados.com.br</p>
+            </div>
+            <div>
+                <h3>Endereço</h3>
+                <p>Av. Paulista, 1000</p>
+                <p>São Paulo - SP</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511123456789" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll para links de navegação
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Formulário de contato
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Aqui você pode adicionar a lógica para enviar o formulário
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Exemplo de alerta de sucesso
+        alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
+        form.reset();
+    });
+
+    // Animação para cards de notícias
+    const newsCards = document.querySelectorAll('.news-card');
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    newsCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.5s ease-out';
+        observer.observe(card);
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Add floating elements to hero
+    const hero = document.querySelector('.hero');
+    const floatingElements = document.createElement('div');
+    floatingElements.className = 'floating-elements';
+
+    // Add SVG icons
+    const icons = [
+        '<svg width="50" height="50" viewBox="0 0 50 50" fill="white"><path d="M25 2L2 25l23 23 23-23L25 2zm0 9l14 14-14 14-14-14 14-14z"/></svg>',
+        '<svg width="40" height="40" viewBox="0 0 40 40" fill="white"><circle cx="20" cy="20" r="18"/></svg>',
+        '<svg width="45" height="45" viewBox="0 0 45 45" fill="white"><path d="M5 5h35v35H5z"/></svg>'
+    ];
+
+    for (let i = 0; i < 6; i++) {
+        const icon = document.createElement('div');
+        icon.className = 'floating-icon';
+        icon.innerHTML = icons[i % icons.length];
+        icon.style.left = `${Math.random() * 90}%`;
+        icon.style.top = `${Math.random() * 90}%`;
+        icon.style.animationDelay = `${Math.random() * 2}s`;
+        floatingElements.appendChild(icon);
+    }
+
+    hero.appendChild(floatingElements);
+
+    // Animations for service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    const serviceObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    serviceObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    serviceCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(30px)';
+        serviceObserver.observe(card);
+    });
+
+    // Add hover effect for service icons
+    serviceCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const icon = card.querySelector('.service-icon');
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const angleX = (y - centerY) / 20;
+            const angleY = (centerX - x) / 20;
+            
+            icon.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.1)`;
+        });
+        
+        card.addEventListener('mouseleave', (e) => {
+            const icon = card.querySelector('.service-icon');
+            icon.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+});
+</script>
+</body></html>
